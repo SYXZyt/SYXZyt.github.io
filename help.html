@@ -21,6 +21,9 @@ smallText {color: #A6A6A6; font-size: 12px;}
 .youtubeLogo {padding-bottom: 8px;}
 .spacer {width: 24px; height: 48px;}
 table, th, td {float: center; text-align: center; border: 1px solid black;}
+.complete{background-color: #65AB59; color: #000;}
+.inProg{background-color: #B08E05; color: #fff;}
+.notDone{background-color: #7A0000; color: #fff;}
 </style>
 
 </head>
@@ -59,8 +62,23 @@ table, th, td {float: center; text-align: center; border: 1px solid black;}
 <td>Example</td>
 <td>20/2/20</td>
 <td>Yes</td>
-<td>100%</td>
+<td class="complete">100%</td>
 </tr>
+
+<tr>
+<td>Example</td>
+<td>20/2/20</td>
+<td>Yes</td>
+<td class="inProg">100%</td>
+</tr>
+
+<tr>
+<td>Example</td>
+<td>20/2/20</td>
+<td>Yes</td>
+<td class="notDone">100%</td>
+</tr>
+
 </table>
 
 </todo>

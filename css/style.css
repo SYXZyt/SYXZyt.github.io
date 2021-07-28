@@ -1,0 +1,188 @@
+body
+{
+	margin-left: 11%;
+	margin-right: 11%;
+	font-family: verdana;
+	color: #fff;
+	background-color: #2f2f2f;
+}
+@media (min-width: 800px)
+{
+	.navigation {
+		z-index: 1;
+		position: fixed;
+		background-color: #303030;
+		border-radius: 8px;
+		border: 2px solid #000;
+	
+	}
+	.navigation a {
+		float: left;
+		display: block;
+		color: #fff;
+		text-align: center;
+		text-decoration: none;
+		padding: 6px;
+		margin: 4px;
+		transition: 0.15s;
+	}
+	.navigation a:hover {
+		border-radius: 2px;
+		background-color: #3b3b3b;
+		color: #fff;
+		transform: scale(1.1);
+	}
+}
+
+@media (max-width: 799px)
+{
+	.navigation {
+		z-index: 1;
+		background-color: #303030;
+	}
+	.navigation a {
+		float: left;
+		display: block;
+		color: #fff;
+		text-align: center;
+		text-decoration: none;
+		padding: 6px;
+		margin: 10px;
+		border-radius: 8px;
+		border: 2px solid #000;
+		transition: 0.15s;
+	}
+		.navigation a:hover {
+		border-radius: 2px;
+		background-color: #3b3b3b;
+		color: #fff;
+		transform: scale(1.1);
+	}
+}
+.centreImg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+.centre
+{
+	text-align: center;
+	display: block;
+}
+
+small
+{
+	color: #aaa;
+	font-size: 12px;
+}
+br {
+	-moz-user-select: none; /*Firefox*/
+	-ms-user-select: none; /*Microsoft edge*/
+	user-select: none; /*Chromium*/
+}
+
+.block
+{
+	background-color: #292929;
+	border: 2px solid black;
+	border-radius: 5px;
+	padding-left: 25%;
+	padding-right: 25%;
+	padding-top: 18px;
+	padding-bottom: 18px;
+	display: block;
+    font-family: monospace;
+    margin: 1em 0px;
+	overflow: auto;
+	white-space: nowrap;
+	
+}
+
+.btn-primary
+{
+	background-color: #9c38ff;
+	border-color: #9c38ff;
+}
+
+.btn-primary:hover
+{
+	background-color: #6827a8;
+	border-color: #6827a8;
+}
+
+ul
+{
+	margin-left: 11%;
+	margin-right: 11%;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+ul a
+{
+	color: #fff;
+	border: 2px solid #666;
+	background-color: #4d4d4d;
+	padding: 8px;
+	display: block;
+	margin-top: 5px;
+	transition: all .2s ease-in-out;
+	transition: 0.3s;
+}
+
+ul a:hover
+{
+	transform: scale(1.1);
+	text-decoration: none;
+	color: #fff;
+	background-color: #8c8c8c;
+}
+
+/*Scroll bar I stole from one of my other
+web projects*/
+::-webkit-scrollbar {
+    width: 14px;
+    height: 18px;
+}
+::-webkit-scrollbar-thumb {
+    height: 6px;
+    border: 4px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+    -webkit-border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: inset -1px -1px 0px rgba(0, 0, 0, 0.05), inset 1px 1px 0px rgba(0, 0, 0, 0.05);
+}
+::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+    display: none;
+}
+::-webkit-scrollbar-corner {
+    background-color: transparent;
+}
+.ttKeyword
+{
+	color: #569CD6;
+}
+.ttString
+{
+	color: #D69D85;
+}
+.ttNumber
+{
+	color: #B5CEA8;
+}
+.ttComment
+{
+	color: #57A64A;
+}
+.ttConditional
+{
+	color: #D8A0DF;
+}
+.indent
+{
+	margin-left: 40px;
+}

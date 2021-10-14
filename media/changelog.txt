@@ -1,2 +1,0 @@
-Version 1.0
-First language version. No addition data to display

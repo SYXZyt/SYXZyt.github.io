@@ -5,7 +5,7 @@ body
 }
 /*We don't want breaks to be selectable*/
 /*https://stackoverflow.com/questions/3779534/how-do-i-disable-text-selection-with-css-or-javascript*/
-br
+br, .noSelect
 {
         -webkit-touch-callout: none; /* iOS Safari */
           -webkit-user-select: none; /* Safari */
@@ -51,3 +51,18 @@ hr
     border-color: rgb(81, 12, 110);
     color:white;
 }
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #4286f4;
+    color: white;
+    text-align: center;
+  }
+
+  .invisable
+  {
+      visibility: hidden;
+  }

@@ -1,0 +1,43 @@
+body
+{
+    background-color: #171717;
+    font-family: Segoe UI,SegoeUI,Helvetica Neue,Helvetica,Arial,sans-serif;
+    color: #e6e6e6;
+}
+/*We don't want breaks to be selectable*/
+/*https://stackoverflow.com/questions/3779534/how-do-i-disable-text-selection-with-css-or-javascript*/
+br, .noSelect
+{
+        -webkit-touch-callout: none; /* iOS Safari */
+          -webkit-user-select: none; /* Safari */
+             -moz-user-select: none; /* Firefox */
+              -ms-user-select: none; /* Internet Explorer/Edge */
+                  user-select: none; /* Non-prefixed version, currently
+                                        supported by Chrome and Opera */
+}
+
+.centre
+{
+    text-align: center;
+}
+
+.container-fluid
+{
+    width: 95%;
+}
+
+.navbar li
+{
+    display: inline;
+}
+
+nav
+{
+    font-size: 24px;
+}
+
+nav
+{
+    padding-left: 30px;
+    padding-right: 30px;
+}

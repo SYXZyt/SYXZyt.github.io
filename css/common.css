@@ -14,3 +14,8 @@ br, .noSelect
 {
     text-align: center;
 }
+
+a
+{
+    text-decoration: none;
+}

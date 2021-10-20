@@ -39,3 +39,13 @@ codebox
     display: block;
     border-radius: 6px;
 }
+
+a
+{
+    color: #e6e6e6;
+}
+
+a:hover
+{
+    color: #7c7c7c;
+}

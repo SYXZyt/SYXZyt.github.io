@@ -5,9 +5,9 @@ body
     color: #e6e6e6;
 }
 
-.container-fluid
+.container
 {
-    width: 95%;
+    width: 80%;
 }
 
 .navbar li
@@ -31,4 +31,11 @@ img
     max-width: 100%;
     width: auto;
     height: auto;
+}
+
+codebox
+{
+    border: black 2px solid;
+    display: block;
+    border-radius: 6px;
 }

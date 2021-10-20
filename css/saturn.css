@@ -1,4 +1,24 @@
-.saturn-number{}
-.saturn-keyword{}
-.saturn-comment{}
-.saturn-string{}
+.saturn-number
+{
+    color: #B5CEA8;
+}
+.saturn-keyword
+{
+    color: #569CD6;
+}
+.saturn-comment
+{
+    color: #57A64A;
+}
+.saturn-string
+{
+    color: #D69D85;
+}
+.saturn-control
+{
+    color: #E67DDC;
+}
+.saturn-func
+{
+    color: #DCDCAA;
+}

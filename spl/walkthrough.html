@@ -25,10 +25,10 @@
                 <nav>
                     <ul>
                         <li><b><a href = "home.html">SPL</a></b> | </li>
-                        <li><u><a href = "home.html">About</a></u>&nbsp;&nbsp;</li>
-                        <li><a href = "walkthrough.html">Quick Walkthrough</a>&nbsp;&nbsp;</li>
-                        <li><a href = "">Keywords</a>&nbsp;&nbsp;</li>
-                        <li><a href = "">Download</a>&nbsp;&nbsp;</li>
+                        <li><a href = "home.html">About</a>&nbsp;</li>
+                        <li><u><a href = "walkthrough.html">Quick Walkthrough</a>&nbsp;</u></li>
+                        <li><a href = "">Keywords</a>&nbsp;</li>
+                        <li><a href = "">Download</a>&nbsp;</li>
                         <li><a href = "examples.html">Examples</a></li>
                     </ul>
                 </nav>
@@ -47,9 +47,44 @@
                 </p>
 				<codebox>
 					<pre>
-						<span class = "spl-keyword">print</span> <span class = "spl-string">"Hello, "</span>
-						<span class = "spl-keyword">println</span> <span class = "spl-string">"World!"</span>
-						<span class = "spl-comment">;Prints `Hello, World!` to the console</span></pre>
+	<span class = "spl-keyword">print</span> <span class = "spl-string">"Hello, "</span>
+	<span class = "spl-keyword">println</span> <span class = "spl-string">"World!"</span>
+	<span class = "spl-comment">;Prints `Hello, World!` to the console</span></pre>
+				</codebox>
+				<br/>
+				<p>
+					SPL supports variables. Variables are just a value in memory. Variables can either be <codeboxi><span class = "spl-keyword">mut</span></codeboxi> or <codeboxi><span class = "spl-keyword">const</span></codeboxi>. Mutable variables means that their value can be changed, whereas constant, means the value cannot be changed once set.<br/>
+				</p>
+				<codebox>
+					<pre>
+	<span class = "spl-keyword">let mut</span> x <span class = "spl-string">"Value"</span> <span class = "spl-comment">;Note that if this was const, an error would be thrown as constant values cannot be changed</span>
+	<span class = "spl-keyword">let mut</span> x <span class = "spl-string">"Another value"</span></pre>
+				</codebox>
+				<br/>
+				<p>
+					SPL features a stack where you can move values onto. This is mostly used to simulate function parameters, or for maths operations.<br/>
+					You can use <codeboxi><span class = "spl-keyword">push</span></codeboxi> or <codeboxi><span class = "spl-keyword">pop</span></codeboxi> to add or remove values.
+				</p>
+				<codebox>
+					<pre>
+	<span class = "spl-keyword">push</span> <span class = "spl-number">2</span>
+	<span class = "spl-keyword">push</span> <span class = "spl-number">1000</span>
+	<span class = "spl-keyword">div</span>
+	<span class = "spl-keyword">setpop const</span> res
+	<span class = "spl-keyword">print</span> <span class = "spl-string">"1000 / 2 is "</span>
+	<span class = "spl-keyword">println</span> res</pre>
+				</codebox>
+				<br/>
+				<p>
+					Variables can also be deleted using the <codeboxi><span class = "spl-keyword">free</span></codeboxi> keyword.<br/>
+					SPL can also move around the current execution. There are two ways of doing this.
+					<codeboxi><span class = "spl-keyword">call</span></codeboxi> will take a label name and jump to it. It also adds to the callstack, meaning you can return using the <codeboxi><span class = "spl-keyword">ret</span></codeboxi> keyword.<br/>
+					<codeboxi><span class = "spl-keyword">goto</span></codeboxi> will jump without touching the callstack. By using <codeboxi><span class = "spl-keyword">goto</span></codeboxi>, you don't just need a label name, but you can also jump to a line number
+				</p>
+				<codebox>
+					<pre>
+	<span class = "spl-keyword">println</span> <span class = "spl-string">"Hello"</span>
+	<span class = "spl-keyword">goto</span> <span class = "spl-number">1</span></pre>
 				</codebox>
             </div>
         </div>

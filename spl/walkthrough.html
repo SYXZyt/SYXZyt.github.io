@@ -15,7 +15,7 @@
         <link href = "../css/scrollbar_dark.css" rel = "stylesheet">
         <link href = "../css/docs.css" rel = "stylesheet">
         <link href = "../css/common.css" rel = "stylesheet">
-        <link href = "../css/spl_syntax.css" rel = "stylesheet">
+		<link href = "../css/spl_syntax.css" rel = "stylesheet">
     </head>
     
     <body>
@@ -36,21 +36,20 @@
             <br/>
             <br/>
             <div class = "textbox">
-				<h1>🏗️UNDER CONSTRUCTION🏗️</h1>
-                <h3>SPL</h3>
-				<h5>SYXZ Personal Language</h5>
+                <h3>Walkthrough</h3>
                 <br/>
                 <p>
-					SPL is a simple scripting language, which features x86 and BASIC inspired syntax. The language was created as a learning tool into interpreter design. The language features a custom made bytecode platform, which the language compiles to. As of right now, there is no JIT compilation, meaning the language could be sped up by compiling from bytecode to machine code. <br/>
-					The language is currently only available on Windows, however I would like to port over to Linux in the future. <br/>
-					SPL also refers to each bit of code as an instruction, as when they are compiled, they become a single instruction on the virtual processor.
+					This guide will assume that you have correctly installed or compiled SPL. <br/>
+					<br/>
+					The very first thing to teach is printing text to the console. <br/>
+					SPL features two instructions for printing. <codeboxi><span class = "spl-keyword">println</span></codeboxi> and <codeboxi><span class = "spl-keyword">print</span></codeboxi><br/>
+					As you can probably guess, one of these will add a new line character on the end of the text <br/>
                 </p>
-				
-				<br/>
-				<p>Here's a quick example</p>
 				<codebox>
 					<pre>
-					<span class = "spl-keyword">println</span> <span class = "spl-string">"Hello, World!"</span> <span class = "spl-comment">;See how easy the syntax is =D</span></pre>
+						<span class = "spl-keyword">print</span> <span class = "spl-string">"Hello, "</span>
+						<span class = "spl-keyword">println</span> <span class = "spl-string">"World!"</span>
+						<span class = "spl-comment">;Prints `Hello, World!` to the console</span></pre>
 				</codebox>
             </div>
         </div>

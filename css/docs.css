@@ -38,6 +38,15 @@ codebox
     border: black 2px solid;
     display: block;
     border-radius: 6px;
+	background-color: #141414;
+}
+
+codeboxi
+{
+    border: #0c0c0c 2px solid;
+    display: inline;
+    border-radius: 6px;
+	background-color: #141414;
 }
 
 a

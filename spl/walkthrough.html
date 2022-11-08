@@ -26,9 +26,10 @@
                     <ul>
                         <li><b><a href = "home.html">SPL</a></b> | </li>
                         <li><a href = "home.html">About</a>&nbsp;</li>
-                        <li><u><a href = "walkthrough.html">Quick Walkthrough</a>&nbsp;</u></li>
-                        <li><a href = "">Keywords</a>&nbsp;</li>
-                        <li><a href = "">Download</a>&nbsp;</li>
+                        <li><u><a href = "walkthrough.html">Quick Walkthrough</a></u>&nbsp;</li>
+                        <li><a href = "keywords.html">Keywords</a>&nbsp;</li>
+                        <li><a href = "errors.html">Errors</a>&nbsp;</li>
+                        <li><a href = "https://github.com/SYXZyt/SPL">Download</a>&nbsp;</li>
                         <li><a href = "examples.html">Examples</a></li>
                     </ul>
                 </nav>
@@ -53,12 +54,13 @@
 				</codebox>
 				<br/>
 				<p>
-					SPL supports variables. Variables are just a value in memory. Variables can either be <codeboxi><span class = "spl-keyword">mut</span></codeboxi> or <codeboxi><span class = "spl-keyword">const</span></codeboxi>. Mutable variables means that their value can be changed, whereas constant, means the value cannot be changed once set.<br/>
+					SPL supports variables. Variables are just a value in memory. Variables can either be mutable or constant. Mutable variables means that their value can be changed, whereas constant, means the value cannot be changed once set.<br/>
 				</p>
 				<codebox>
 					<pre>
-	<span class = "spl-keyword">let mut</span> x <span class = "spl-string">"Value"</span> <span class = "spl-comment">;Note that if this was const, an error would be thrown as constant values cannot be changed</span>
-	<span class = "spl-keyword">let mut</span> x <span class = "spl-string">"Another value"</span></pre>
+	<span class = "spl-keyword">let</span> x <span class = "spl-string">"Value"</span> <span class = "spl-comment">;Note that if this was const, an error would be thrown as constant values cannot be changed</span>
+	<span class = "spl-keyword">let</span> x <span class = "spl-string">"Another value"</span>
+	<span class = "spl-keyword">const</span> PI <span class = "spl-number">3.1415</span> <span class = "spl-comment">;I am constant, therefore my value must be set at compile time and cannot be changed</span></pre>
 				</codebox>
 				<br/>
 				<p>
@@ -70,21 +72,58 @@
 	<span class = "spl-keyword">push</span> <span class = "spl-number">2</span>
 	<span class = "spl-keyword">push</span> <span class = "spl-number">1000</span>
 	<span class = "spl-keyword">div</span>
-	<span class = "spl-keyword">setpop const</span> res
+	<span class = "spl-keyword">setpop</span> res
 	<span class = "spl-keyword">print</span> <span class = "spl-string">"1000 / 2 is "</span>
 	<span class = "spl-keyword">println</span> res</pre>
 				</codebox>
 				<br/>
 				<p>
 					Variables can also be deleted using the <codeboxi><span class = "spl-keyword">free</span></codeboxi> keyword.<br/>
+				</p>
+				<codebox>
+					<pre>
+	<span class = "spl-keyword">let</span> i <span class = "spl-number">0</span>
+	<span class = "spl-keyword">free</span> i
+	<span class = "spl-keyword">push</span> i <span class = "spl-comment">;This will cause an error since i no longer exists on the variable stack</span></pre>
+				</codebox>
+				<br/>
 					SPL can also move around the current execution. There are two ways of doing this.
 					<codeboxi><span class = "spl-keyword">call</span></codeboxi> will take a label name and jump to it. It also adds to the callstack, meaning you can return using the <codeboxi><span class = "spl-keyword">ret</span></codeboxi> keyword.<br/>
 					<codeboxi><span class = "spl-keyword">goto</span></codeboxi> will jump without touching the callstack. By using <codeboxi><span class = "spl-keyword">goto</span></codeboxi>, you don't just need a label name, but you can also jump to a line number
 				</p>
 				<codebox>
-					<pre>
+				<pre>
 	<span class = "spl-keyword">println</span> <span class = "spl-string">"Hello"</span>
 	<span class = "spl-keyword">goto</span> <span class = "spl-number">1</span></pre>
+				</codebox>
+				<br/>
+				<p>Using labels, we can do it this way</p>
+				<codebox>
+				<pre>
+:loop
+	<span class = "spl-keyword">println</span> <span class = "spl-string">"Hello"</span>
+	<span class = "spl-keyword">goto</span> loop</pre>
+				</codebox>
+				<br/>
+				<p>Be careful though, using <codeboxi><span class = "spl-keyword">call</span></codeboxi>, it will add to the callstack, like a function call, meaning this code will create a stack overflow error.</p>
+				<codebox>
+				<pre>
+:loop
+	<span class = "spl-keyword">println</span> <span class = "spl-string">"Hello"</span>
+	<span class = "spl-keyword">call</span> loop<span class = "spl-comment"> ;This will throw an stack overflow</span></pre>
+				</codebox>
+				<br/>
+				<p>
+					Using <codeboxi><span class = "spl-keyword">ret</span></codeboxi> allows us to jump back to a previous location. If you return when there is nowhere to return to, then an error will throw
+				</p>
+				<codebox>
+				<pre>
+	<span class = "spl-keyword">call</span> loop
+
+:loop
+	<span class = "spl-keyword">println</span> <span class = "spl-string">"Hello"</span>
+	<span class = "spl-keyword">ret</span> <span class = "spl-comment">;This will only execute once, as we are returning out of this call</span>
+	<span class = "spl-keyword">goto</span> loop </pre>
 				</codebox>
             </div>
         </div>

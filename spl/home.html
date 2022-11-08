@@ -27,8 +27,9 @@
                         <li><b><a href = "home.html">SPL</a></b> | </li>
                         <li><u><a href = "home.html">About</a></u>&nbsp;</li>
                         <li><a href = "walkthrough.html">Quick Walkthrough</a>&nbsp;</li>
-                        <li><a href = "">Keywords</a>&nbsp;</li>
-                        <li><a href = "">Download</a>&nbsp;</li>
+                        <li><a href = "keywords.html">Keywords</a>&nbsp;</li>
+                        <li><a href = "errors.html">Errors</a>&nbsp;</li>
+                        <li><a href = "https://github.com/SYXZyt/SPL">Download</a>&nbsp;</li>
                         <li><a href = "examples.html">Examples</a></li>
                     </ul>
                 </nav>
@@ -38,20 +39,29 @@
             <div class = "textbox">
 				<h1>🏗️UNDER CONSTRUCTION🏗️</h1>
                 <h3>SPL</h3>
-				<h5>SYXZ Personal Language</h5>
+				<h5>SYXZ Programming Language</h5>
                 <br/>
                 <p>
 					SPL is a simple scripting language, which features x86 and BASIC inspired syntax. The language was created as a learning tool into interpreter design. The language features a custom made bytecode platform, which the language compiles to. As of right now, there is no JIT compilation, meaning the language could be sped up by compiling from bytecode to machine code. <br/>
+                    The language works by pushing values onto the stack, manipulating them, then moving them into variables. This can be used to create some advanced arithmetic.<br/>
 					The language is currently only available on Windows, however I would like to port over to Linux in the future. <br/>
-					SPL also refers to each bit of code as an instruction, as when they are compiled, they become a single instruction on the virtual processor.
+					SPL also refers to each bit of code as an instruction, as when they are compiled, they become a single instruction on the virtual processor.<br/>
+                    SPL has finally reached v1.2, which is expected to be its end of support. Version 1.2 has implemented console manipulation, allowing programs to be more visually impressive<br/>
+                    See <a href = "examples.html">examples</a> for programs that I used these features on. <br/>
+                    SPL programs can use breakpoints, to allow an easier time debugging.
                 </p>
 				
 				<br/>
 				<p>Here's a quick example</p>
 				<codebox>
 					<pre>
-					<span class = "spl-keyword">println</span> <span class = "spl-string">"Hello, World!"</span> <span class = "spl-comment">;See how easy the syntax is =D</span></pre>
+:loop
+    <span class = "spl-keyword">println</span> <span class = "spl-string">"Hello, World!"</span> <span class = "spl-comment">;See how easy the syntax is =D</span>
+    <span class = "spl-keyword">goto</span> loop</pre>
 				</codebox>
+				<br/>
+				<p>You can find the source code and contribute here</p>
+				<a class="btn btn-primary" href = "https://github.com/SYXZyt/SPL">SPL Source Code</a>
             </div>
         </div>
     </body>

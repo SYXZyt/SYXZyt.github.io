@@ -123,47 +123,74 @@ add ;Pushes 50 to the stack</pre></codebox></th>
 					</tr>
 					<tr>
 						<th>sub</th>
-						<th></th>
+						<th>Subtract two numbers<codebox><pre>
+push 5
+push 10
+sub ;Pushes 5 onto the stack</pre></codebox></th>
 					</tr>
-					<tr>
+					<tr>                                                                      
 						<th>mul</th>
-						<th></th>
+						<th>Multiply two numbers<codebox><pre>
+push 10
+push 5
+mul ;Pushes 50 onto the stack</pre></codebox></th>
 					</tr>
 					<tr>
 						<th>div</th>
-						<th></th>
+						<th>Divide two numbers<codebox><pre>
+push 10
+push 2
+div ;Pushes 5 onto the stack</pre></codebox></th>
 					</tr>
 					<tr>
 						<th>pow</th>
-						<th></th>
+						<th>Calculate the power of two numbers<codebox><pre>
+push 2
+push 3
+pow ;Pushes 9 onto the stack</pre></codebox></th>
 					</tr>
 					<tr>
 						<th>to_float</th>
-						<th></th>
+						<th>Convert a value to a float<codebox><pre>
+push "3.14"
+to_float ;Pushes 3.14f onto the stack</pre></codebox></th>
 					</tr>
 					<tr>
 						<th>to_int</th>
-						<th></th>
+						<th>Convert a value to an int<codebox><pre>
+push 3.14
+to_int ;Pushes 3 onto the stack</pre></codebox></th>
 					</tr>
 					<tr>
 						<th>to_string</th>
-						<th></th>
+						<th>Convert a value to a float<codebox><pre>
+push 14
+to_string ;Pushes "14" onto the stack</pre></codebox></th>
 					</tr>
 					<tr>
 						<th>free</th>
-						<th></th>
+						<th>Delete a variable from memory<codebox><pre>
+let x 1
+free x
+println x ;This will cause a "variable does not exist" error</pre></codebox></th>
 					</tr>
 					<tr>
 						<th>concat</th>
-						<th></th>
-					</tr>
-					<tr>
-						<th>call</th>
-						<th></th>
+						<th>Concat two strings on the stack<codebox><pre>
+push " World!"
+push "Hello"
+concat ;Pushes "Hello World!" onto the stack</pre></codebox></th>
 					</tr>
 					<tr>
 						<th>ret</th>
-						<th></th>
+						<th>Return from a called label<codebox><pre>
+let x "Hello"
+call print_x
+exit 0
+							
+:print_x
+	println x
+	ret</pre></codebox></th>
 					</tr>
 					<tr>
 						<th>Conditionals</th>
@@ -219,10 +246,6 @@ add ;Pushes 50 to the stack</pre></codebox></th>
 					</tr>
 					<tr>
 						<th>console cursor</th>
-						<th></th>
-					</tr>
-					<tr>
-						<th>raise</th>
 						<th></th>
 					</tr>
 				</table>

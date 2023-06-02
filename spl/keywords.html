@@ -71,10 +71,11 @@ let PI 4 ;This throws an error</pre></th>
 					</tr>
 					<tr>
 						<th>println</th>
-						<th>Print tex to the screen, followed by <span class = "spl-string">"\r\n"</span><codebox><pre>
+						<th>Print text to the screen, followed by <span class = "spl-string">"\r\n"</span><codebox><pre>
 const NAME "SPL"
 print "My name is "
-println NAME</pre></codebox></th>
+println NAME
+;Will output "My name is SPL\r\n"</pre></codebox></th>
 					</tr>
 					<tr>
 						<th>goto</th>
@@ -194,19 +195,49 @@ exit 0
 					</tr>
 					<tr>
 						<th>Conditionals</th>
-						<th></th>
+						<th>Will jump to a label based on two values on the stack. Left hand is gotten first<br/>
+						Possible conditionals are <codeboxi>grt gre lwr lwe equ neq</codeboxi><codebox><pre>
+push 1
+push 3
+lwr less
+println "Greater than"
+goto end
+:less
+println "Less than"
+:end
+exit 0</pre></codebox></th></th>
+
 					</tr>
 					<tr>
 						<th>inc</th>
-						<th></th>
+						<th>Increment a value<codebox><pre>
+let x 0
+:loop
+	push x
+	inc
+	setpop x
+	println x
+	goto loop</pre></codebox></th>
 					</tr>
 					<tr>
 						<th>dec</th>
-						<th></th>
+						<th>Increment a value<codebox><pre>
+let x 9999
+:loop
+	push x
+	dec
+	setpop x
+	println x
+	goto loop</pre></codebox></th>
 					</tr>
 					<tr>
 						<th>input</th>
-						<th></th>
+						<th>Read a string from console<codebox><pre>
+println "What is your name?"
+input
+print "Hello there "
+setpop x
+println x</pre></codebox></th>
 					</tr>
 					<tr>
 						<th>mod</th>

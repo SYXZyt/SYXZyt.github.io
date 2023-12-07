@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://syxzyt.github.io/spl/ops/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Instructions - SPL Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Instructions";
+        var mkdocs_page_input_path = "ops.md";
+        var mkdocs_page_url = "/spl/ops/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> SPL Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../walkthrough/">Walkthrough</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Instructions</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#let">Let</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#setpop">Setpop</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#print">Print</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#calling">Calling</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#stack-manipulation">Stack Manipulation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#maths">Maths</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#adding">Adding</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#subtracting">Subtracting</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#multiplication">Multiplication</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#division">Division</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">SPL Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Instructions</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="instructions">Instructions</h1>
+<h2 id="let">Let</h2>
+<p>The <code>let</code> keyword will update the value of a variable, or assign it if it does not exist.</p>
+<pre><code>;This will create x
+let x &quot;SPL&quot;
+let x &quot;New Value&quot; ;This will update the value of x
+</code></pre>
+<p>All variables must be created before use.</p>
+<pre><code>push x ;This will fail since x has not been created yet
+let x 1
+push x ;This is ok because x has already been created
+</code></pre>
+<h2 id="setpop">Setpop</h2>
+<p><code>setpop</code> is similar to the <code>let</code> keyword, however it will take the value of the variable from the stack instead of being
+given an explicit value.</p>
+<pre><code>push 3.1415
+setpop pi ;pi now contains 3.1415
+</code></pre>
+<p><code>setpop</code> will operate on variables that already exist and have not been defined</p>
+<pre><code>push 0
+let x 0
+setpop x
+
+push 0
+setpop y ;Even though y has not been defined, setpop will create it
+</code></pre>
+<h2 id="print">Print</h2>
+<p>Printing uses two different keywords. <code>print</code> and <code>println</code>. As you might be able to guess from the name, <code>println</code> will
+print with a new line character appended at the end of the output.</p>
+<pre><code>print &quot;Hello&quot;
+println &quot; There &quot;
+print &quot;World!&quot;
+;This will display this in the console:
+;Hello There
+;World!
+</code></pre>
+<p>Printing also works with all data types and variables</p>
+<pre><code>let x &quot;Hello&quot;
+println x
+print &quot;Hello&quot;
+print 1
+print 3.1415
+</code></pre>
+<h2 id="calling">Calling</h2>
+<p>SPL uses two keywords to deal with calling. <code>goto</code> and <code>call</code> are the two main instructions used.
+<code>goto</code> will jump to a set code point.
+<code>call</code> does the same, except it will add to the callstack which allows you to return back to where you came from.
+If you need a section of code to act like a function, you should use <code>call</code> where-as if you need a loop, then you should
+use <code>goto</code>. If you use <code>call</code> without returning too much, you will get a stack-overflow error.</p>
+<pre><code>:myLoop
+    println &quot;Hello&quot;
+    goto myLoop
+</code></pre>
+<pre><code>:myFunc
+    call myFunc ;Will cause a stack-overflow error since it is not returned
+</code></pre>
+<pre><code>:myFunc
+    ;... do some processing
+    ret
+
+call myFunc ;Will not cause an error, since ret is used
+</code></pre>
+<h2 id="stack-manipulation">Stack Manipulation</h2>
+<p>The stack is the main method of storing data in SPL.
+<code>push</code>, <code>pop</code> and <code>setpop</code> are the main methods of moving data to and from the stack.</p>
+<p><code>push</code> will add data onto the stack. It can take any data type, and variables.
+<code>pop</code> will remove data from the stack, but will not do anything with it so the data will be deleted.
+<code>setpop</code> will pop the data, but instead of deleting it, it will move it into a variable.</p>
+<pre><code>push 1
+push 2
+pop
+setpop x
+println x ;1 will be printed since 2 got popped of the stack
+</code></pre>
+<h2 id="maths">Maths</h2>
+<p>SPL has numerous maths instructions. These will take values off of the stack, and will push
+a result back onto it.
+It is important to be aware that the order of pushing values is reversed from what you might expect.
+The left hand side will be popped first so make sure you push the right hand side first.</p>
+<h2 id="adding">Adding</h2>
+<p>The <code>add</code> instruction will take two numeric values and push the result onto the stack.</p>
+<pre><code>push 5
+push 10
+add
+setpop res ;res now stores 15 (10 + 5)
+</code></pre>
+<h2 id="subtracting">Subtracting</h2>
+<p>The <code>sub</code> instruction will take two numeric values and push the result onto the stack</p>
+<pre><code>push 5
+push 10
+sub
+setpop res ;res now stores 5 (10 - 5)
+
+push 10
+push 5
+sub
+setpop res ;res now stores -5 (5 - 10)
+</code></pre>
+<h2 id="multiplication">Multiplication</h2>
+<p>The <code>mul</code> instruction will take two numeric values and push the result onto the stack</p>
+<pre><code>push 5
+push 10
+mul
+setpop res ;res now stores 50 (10 * 5)
+</code></pre>
+<h2 id="division">Division</h2>
+<p>The <code>div</code> instruction will take two numeric values and push the result onto the stack</p>
+<pre><code>push 5
+push 10
+div
+setpop res ;res now stores 2 (10 / 5)
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../walkthrough/" class="btn btn-neutral float-left" title="Walkthrough"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../walkthrough/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

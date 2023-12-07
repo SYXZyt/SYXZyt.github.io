@@ -1,5 +1,4 @@
 nav:
-    -index.md
-    ...
-    -walkthrough.md
-    -ops.md
+    - index.md
+    - walkthrough.md
+    - ops.md

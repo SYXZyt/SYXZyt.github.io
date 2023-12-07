@@ -1,0 +1,16 @@
+site_name: SPL Documentation
+site_url: https://syxzyt.github.io/spl
+
+nav:
+  - Home: index.md
+  - Walkthrough: walkthrough.md
+  - Instructions: ops.md
+
+theme:
+  name: readthedocs
+  features:
+    - content.code.copy
+
+plugins:
+  - search
+  - awesome-pages

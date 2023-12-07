@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://syxzyt.github.io/spl/walkthrough/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Walkthrough - SPL Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Walkthrough";
+        var mkdocs_page_input_path = "walkthrough.md";
+        var mkdocs_page_url = "/spl/walkthrough/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> SPL Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Walkthrough</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#console">Console</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#variables">Variables</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#variable-types">Variable Types</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#stack">Stack</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#looping">Looping</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../ops/">Instructions</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">SPL Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Walkthrough</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="walkthrough">Walkthrough</h1>
+<p>This guide will assume that you have correctly installed or compiled SPL.</p>
+<h2 id="console">Console</h2>
+<p>The very first thing to teach is printing text to the console. SPL features two instructions for printing. println and print As you can probably guess, one of these will add a new line character on the end of the text</p>
+<pre><code>    print &quot;Hello, &quot;
+    println &quot;World!&quot;
+    ;Prints `Hello, World!` to the console
+</code></pre>
+<h2 id="variables">Variables</h2>
+<p>SPL supports variables. Variables are just a value in memory. Variables can either be mutable or constant. Mutable variables means that their value can be changed, whereas constant, means the value cannot be changed once set.</p>
+<pre><code>    let x &quot;Value&quot; ;Note that if this was const, an error would be thrown as constant values cannot be changed
+    let x &quot;Another value&quot;
+    const PI 3.1415 ;I am constant, therefore my value must be set at compile time and cannot be changed
+</code></pre>
+<p>Variables can also be deleted using the free keyword.</p>
+<pre><code>    let i 0
+    free i
+    push i ;This will cause an error since i no longer exists on the variable stack
+</code></pre>
+<h2 id="variable-types">Variable Types</h2>
+<p>SPL currently supports 3 different variable types.<br/>
+The first is integers. These are numbers which contain no decimal value. <br/>
+Second is floating point numbers. These are numbers which contain a decimal value <br/>
+Lastly is strings. Strings are sequences of characters, although note that SPL contains no char type, and you cannot read a certain value from strings.</p>
+<p>Variables in SPL are dynamically typed which means their value will be determined at run-time and the variable type can be re-assigned by writing a new value to a variable.</p>
+<h2 id="stack">Stack</h2>
+<p>SPL features a stack where you can move values onto. This is mostly used to simulate function parameters, or for maths operations.</p>
+<p>You can use push or pop to add or remove values.</p>
+<pre><code>    push 2
+    push 1000
+    div
+    setpop res
+    print &quot;1000 / 2 is &quot;
+    println res
+</code></pre>
+<h2 id="looping">Looping</h2>
+<p>SPL can also move around the current execution. There are two ways of doing this. call will take a label name and jump to it. It also adds to the callstack, meaning you can return using the ret keyword.goto will jump without touching the callstack. By using goto, you don't just need a label name, but you can also jump to a line number</p>
+<pre><code>    println &quot;Hello&quot;
+    goto 1
+</code></pre>
+<p>Using labels, we can do it this way</p>
+<pre><code>:loop
+    println &quot;Hello&quot;
+    goto loop
+</code></pre>
+<p>Be careful though, using call, it will add to the callstack, like a function call, meaning this code will create a stack overflow error.</p>
+<pre><code>:loop
+    println &quot;Hello&quot;
+    call loop ;This will throw an stack overflow
+</code></pre>
+<p>Using ret allows us to jump back to a previous location. If you return when there is nowhere to return to, then an error will throw</p>
+<pre><code>    call loop
+
+:loop
+    println &quot;Hello&quot;
+    ret ;This will only execute once, as we are returning out of this call
+    goto loop 
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../ops/" class="btn btn-neutral float-right" title="Instructions">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../ops/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

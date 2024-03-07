@@ -25,6 +25,11 @@ br, .noSelect
     float: center;
 }
 
+a
+{
+    text-decoration: none;
+}
+
 hr
 {
     width: 50%;
